@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Jacquard 12';
+    src: url('Jacquard12-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lugrasimo';
+    src: url('Lugrasimo-Regular.ttf');
+}
+
+body {
+    background-color: black;
+    font-family: 'Jacquard 12';
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+.details {
+    font-family: 'Lugrasimo';
+    font-size: 20px;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+h2{
+    font-family: 'Jacquard 12';
+    font-size: 40px;
+}

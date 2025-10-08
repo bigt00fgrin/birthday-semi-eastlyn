@@ -1,0 +1,8 @@
+@font-face {
+  font-family:"BitcountSingleInk";
+  src: url "https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&display=swap";
+}
+
+p {
+    font-family: 'BitcountSingleInk';
+}
