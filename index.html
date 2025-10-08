@@ -23,7 +23,16 @@
     <p> See you there ;)</p>
     </div>
     <p>There will be no worry. Only joy.</p>
-    <!-- Link to external JavaScript file, often placed at the end of the body or with defer attribute in head -->
-    <script src="script.js" defer></script>
+    <audio id="bgm" src="HowToSaveALife8Bit.mp3"></audio>
+
+    <script>
+        const bgm = document.getElementById("bgm");
+
+        // Optional: start playing only after user interaction
+        document.addEventListener("click", () => {
+            bgm.loop = true;
+            bgm.play();
+        });
+    </script>
 </body>
 </html>
