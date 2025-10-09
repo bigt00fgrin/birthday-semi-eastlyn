@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Coral Pixels';
-    src: url('CoralPixels-Regular.ttf');
+    font-family: 'Enhanced Dot Digital';
+    src: url('enhanced_dot_digital-7.ttf');
 }
 
 @font-face {
@@ -8,9 +8,14 @@
     src: url('Lugrasimo-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Coral Pixels';
+    src: url('CoralPixels-Regular.ttf');
+}
+
 body {
     background-color: black;
-    font-family: 'Jacquard 12';
+    font-family: 'Enhanced Dot Digital';
     font-size: 40px;
     text-align: center;
     color: white;
@@ -25,6 +30,6 @@ body {
 }
 
 h2{
-    font-family: 'Jacquard 12';
+    font-family: 'Enhanced Dot Digital';
     font-size: 40px;
 }
