@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Jacquard 12';
-    src: url('Jacquard12-Regular.ttf');
+    font-family: 'Coral Pixels';
+    src: url('CoralPixels-Regular.ttf');
 }
 
 @font-face {
@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: rgb(215, 44, 164);
+    background-color: black;
     font-family: 'Jacquard 12';
     font-size: 40px;
     text-align: center;
