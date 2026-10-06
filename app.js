@@ -9,24 +9,30 @@ document.addEventListener("click", () => {
 })
 
 //RSVP
+const API_URL = "https://script.google.com/macros/s/AKfycbzcit9alP3kUMSaXxd0AwsIGg0kO_y57JbLuRlQkikoZU5FaykGIqEo4bcOyXOdE20O/exec";
+
+
 function showYesOptions() {
+
     const name = document.getElementById("name").value.trim();
     const response = document.getElementById("response");
 
     if (!name) {
-        response.textContent = "Please enter your name first!";
+        response.textContent = "Tell us your name first! ♡";
         return;
     }
+
+    response.textContent = "";
 
     document.getElementById("yes-options").style.display = "block";
 }
 
 
 async function submitYesRSVP() {
-    const name = document.getElementById("name").value.trim();
+
     const plus = document.getElementById("plus").value;
 
-    submitRSVP("yes", Number(plus));
+    await submitRSVP("yes", Number(plus));
 }
 
 
@@ -42,13 +48,11 @@ async function submitRSVP(response, plus) {
 
     try {
 
-        const result = await fetch("/api/rsvp", {
+        const result = await fetch(API_URL, {
             method: "POST",
-
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "text/plain"
             },
-
             body: JSON.stringify({
                 name: name,
                 response: response,

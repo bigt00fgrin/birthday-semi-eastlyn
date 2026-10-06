@@ -1,7 +1,8 @@
+const API_URL = "https://script.google.com/macros/s/AKfycbzcit9alP3kUMSaXxd0AwsIGg0kO_y57JbLuRlQkikoZU5FaykGIqEo4bcOyXOdE20O/exec";
+
 async function loadRSVPs() {
 
-    const response = await fetch("/api/rsvps");
-
+    const response = await fetch(API_URL);
     const rsvps = await response.json();
 
     const yesRSVPs = rsvps.filter(rsvp => rsvp.response === "yes");
