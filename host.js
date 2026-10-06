@@ -1,59 +1,71 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbzcit9alP3kUMSaXxd0AwsIGg0kO_y57JbLuRlQkikoZU5FaykGIqEo4bcOyXOdE20O/exec";
 
-    const response = await fetch(API_URL);
-    const rsvps = await response.json();
+    async function loadRSVPs() {
 
-    const yesRSVPs = rsvps.filter(rsvp => rsvp.response === "yes");
-    const noRSVPs = rsvps.filter(rsvp => rsvp.response === "no");
+    try {
 
+        const response = await fetch(API_URL);
 
-    // Count actual people coming
-    let totalPeople = 0;
+        const rsvps = await response.json();
 
-    yesRSVPs.forEach(rsvp => {
-        totalPeople += 1 + Number(rsvp.plus);
-    });
+        const yesRSVPs = rsvps.filter(rsvp => rsvp.response === "yes");
+        const noRSVPs = rsvps.filter(rsvp => rsvp.response === "no");
 
 
-    // Total people
-    document.getElementById("total-people").textContent = totalPeople;
+        // Count actual people coming
+        let totalPeople = 0;
 
-    // Number of YES RSVPs
-    document.getElementById("yes-count").textContent = yesRSVPs.length;
+        yesRSVPs.forEach(rsvp => {
+            totalPeople += 1 + Number(rsvp.plus);
+        });
 
 
-    // YES names
-    const yesList = document.getElementById("yes-list");
+        // Total people
+        document.getElementById("total-people").textContent = totalPeople;
 
-    yesList.innerHTML = "";
+        // Number of YES RSVPs
+        document.getElementById("yes-count").textContent = yesRSVPs.length;
 
-    yesRSVPs.forEach(rsvp => {
 
-        const person = document.createElement("p");
+        // YES names
+        const yesList = document.getElementById("yes-list");
 
-        if (rsvp.plus === 1) {
-            person.textContent = `${rsvp.name} +1`;
-        } else {
+        yesList.innerHTML = "";
+
+        yesRSVPs.forEach(rsvp => {
+
+            const person = document.createElement("p");
+
+            if (Number(rsvp.plus) === 1) {
+                person.textContent = `${rsvp.name} +1`;
+            } else {
+                person.textContent = rsvp.name;
+            }
+
+            yesList.appendChild(person);
+        });
+
+
+        // NO names
+        const noList = document.getElementById("no-list");
+
+        noList.innerHTML = "";
+
+        noRSVPs.forEach(rsvp => {
+
+            const person = document.createElement("p");
+
             person.textContent = rsvp.name;
-        }
 
-        yesList.appendChild(person);
-    });
+            noList.appendChild(person);
+        });
 
 
-    // NO names
-    const noList = document.getElementById("no-list");
+    } catch (error) {
 
-    noList.innerHTML = "";
+        console.error("Could not load RSVPs:", error);
 
-    noRSVPs.forEach(rsvp => {
-
-        const person = document.createElement("p");
-
-        person.textContent = rsvp.name;
-
-        noList.appendChild(person);
-    });
+    }
 }
 
 
