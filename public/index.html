@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semi and Eastlyn's 27th Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h2>Semi and Eastlyn’s 27th Birthday</h2>
+
+    <img src="img.png" width="75%">
+
+    <div class="details">
+        <p>See you there ;)</p>
+        <p>There will be no worry. Only joy.</p>
+    </div>
+
+    <div class="rsvp">
+
+        <h3>RSVP</h3>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Your name"
+        >
+
+        <div class="rsvp-buttons">
+
+            <button onclick="showYesOptions()">
+                YES
+            </button>
+
+            <button onclick="submitRSVP('no', 0)">
+                Can't come :/
+            </button>
+
+        </div>
+
+        <!-- plus ones -->
+        <div id="yes-options" style="display: none;">
+            <select id="plus">
+                <option value="0">Just me</option>
+                <option value="1">+1</option>
+            </select>
+
+            <button onclick="submitYesRSVP()">
+                Confirm RSVP
+            </button>
+
+        </div>
+
+        <p id="response"></p>
+
+    </div>
+
+    <audio id="bgm" src="candy.mp3"></audio>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
