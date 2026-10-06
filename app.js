@@ -41,9 +41,17 @@ async function submitRSVP(response, plus) {
     const message = document.getElementById("response");
 
     if (!name) {
-        message.textContent = "Please enter your name first! ♡";
+        message.textContent = "Please enter your name first!♡";
         return;
     }
+
+    // Show sending message immediately
+    message.textContent = "sending to eastlyn and semi...";
+
+    // Hide buttons immediately so they can't click twice
+    document.querySelector(".rsvp-buttons").style.display = "none";
+    document.getElementById("yes-options").style.display = "none";
+
 
     try {
 
@@ -65,15 +73,14 @@ async function submitRSVP(response, plus) {
 
         if (result.ok) {
 
-            // Hide the RSVP form
+            // Hide name field
             document.getElementById("name").style.display = "none";
-            document.querySelector(".rsvp-buttons").style.display = "none";
-            document.getElementById("yes-options").style.display = "none";
 
-            // Show confirmation
+            // Show final message
             message.textContent = response === "yes"
-                ? `Love youuuuu ${name}!`
-                : `Thank you ${name}! ♡ We'll miss you!`;
+                ? `Love youuuu ${name} ♡`
+                : `We'll miss youuuu ${name} ♡`;
+
         } else {
 
             message.textContent = "Something went wrong.";
