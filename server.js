@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -66,5 +66,5 @@ app.get("/api/rsvps", (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`RSVP server running at http://localhost:${PORT}`);
+    console.log(`RSVP server running at ${PORT} `);
 });
