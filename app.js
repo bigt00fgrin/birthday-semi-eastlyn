@@ -3,10 +3,6 @@ const bgm = document.getElementById("bgm");
 bgm.loop = true;
 bgm.play();
 
-document.addEventListener("click", () => {
-    bgm.loop = true;
-    bgm.play();     
-})
 
 //RSVP
 const API_URL = "https://script.google.com/macros/s/AKfycbzcit9alP3kUMSaXxd0AwsIGg0kO_y57JbLuRlQkikoZU5FaykGIqEo4bcOyXOdE20O/exec";
@@ -30,6 +26,11 @@ function showYesOptions() {
 async function submitYesRSVP() {
 
     const plus = document.getElementById("plus").value;
+
+    document.addEventListener("click", () => {
+    bgm.loop = true;
+    bgm.play();     
+    })
 
     await submitRSVP("yes", Number(plus));
 }
